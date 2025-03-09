@@ -5,7 +5,9 @@ pub enum Characteristic {
     Standard,
     OneSaber,
     NoArrows,
+    #[serde(rename = "90Degrees")]
     Rotation90Degrees,
+    #[serde(rename = "360Degrees")]
     Rotation360Degrees,
     Lightshow,
     Lawless,
