@@ -1,6 +1,6 @@
 [package]
 name = "beatsaver-api"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Pochama <mercworld@pocha.moe>"]
 description = "A Rust API wrapper for the Beatsaver API."
 edition = "2024"
