@@ -189,7 +189,7 @@ pub struct MapStats {
     pub reviews: i32,
 
     /// General user sentiment of the map.
-    pub sentiment: UserSentiment,
+    pub sentiment: Option<UserSentiment>,
 }
 
 /// Information about a map on BeatSaver.
