@@ -5,9 +5,9 @@ pub enum Characteristic {
     Standard,
     OneSaber,
     NoArrows,
-    #[serde(rename = "90Degrees")]
+    #[serde(rename = "90Degree")]
     Rotation90Degrees,
-    #[serde(rename = "360Degrees")]
+    #[serde(rename = "360Degree")]
     Rotation360Degrees,
     Lightshow,
     Lawless,
@@ -20,8 +20,8 @@ impl Characteristic {
             Self::Standard => "Standard",
             Self::OneSaber => "OneSaber",
             Self::NoArrows => "NoArrows",
-            Self::Rotation90Degrees => "90Degrees",
-            Self::Rotation360Degrees => "360Degrees",
+            Self::Rotation90Degrees => "90Degree",
+            Self::Rotation360Degrees => "360Degree",
             Self::Lightshow => "Lightshow",
             Self::Lawless => "Lawless",
             Self::Legacy => "Legacy",
