@@ -2,7 +2,7 @@ use chrono::{DateTime, Utc};
 use serde::Deserialize;
 
 use crate::{
-    enums::{
+    models::enums::{
         AIDeclarationType, BeatSaberEnvironment, Characteristic, MapState, MapTag, UserSentiment,
     },
     models::user::UserDetail,

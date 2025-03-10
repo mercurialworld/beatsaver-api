@@ -2,7 +2,7 @@ use chrono::DateTime;
 use chrono::Utc;
 use serde::Deserialize;
 
-use crate::enums::{AccountType, PatreonTier};
+use crate::models::enums::{AccountType, PatreonTier};
 
 /// Information about a user on BeatSaver.
 ///

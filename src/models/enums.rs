@@ -172,33 +172,44 @@ pub enum AIDeclarationType {
 }
 
 #[derive(Debug, Deserialize)]
-#[serde(rename_all = "lowercase")]
+#[serde(rename_all = "kebab-case")]
 pub enum MapTag {
     None,
+
+    // Map types
     Tech,
-    DanceStyle,
+    DanceStyle, // not to be confused with the genre dance
     Speed,
     Balanced,
     Challenge,
     Accuracy,
     Fitness,
+
+    // Song genres
     Swing,
     Nightcore,
+    #[serde(rename = "folk-acoustic")]
     Folk,
+    #[serde(rename = "kids-family")]
     Family,
     Ambient,
+    #[serde(rename = "funk-disco")]
     Funk,
     Jazz,
+    #[serde(rename = "classical-orchestral")]
     Classical,
     Soul,
     Speedcore,
     Punk,
+    #[serde(rename = "rb")]
     RB,
     Holiday,
     Vocaloid,
     JRock,
     Trance,
+    #[serde(rename = "drum-and-bass")]
     DrumBass,
+    #[serde(rename = "comedy-meme")]
     Comedy,
     Instrumental,
     Hardcore,
@@ -206,12 +217,16 @@ pub enum MapTag {
     Indie,
     Techno,
     House,
+    #[serde(rename = "video-game-soundtrack")]
     Game,
+    #[serde(rename = "tv-movie-soundtrack")]
     Film,
+    #[serde(rename = "alternative")]
     Alt,
     Dubstep,
     Metal,
     Anime,
+    #[serde(rename = "hip-hop-rap")]
     HipHop,
     JPop,
     Dance,

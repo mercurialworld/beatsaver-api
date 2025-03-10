@@ -1,9 +1,10 @@
 use chrono::{DateTime, Utc};
 use serde::Deserialize;
 
-use crate::enums::PlaylistType;
-
-use super::{map::MapDetailWithOrder, user::UserDetail};
+use crate::models::{
+    enums::PlaylistType,
+    {map::MapDetailWithOrder, user::UserDetail},
+};
 
 /// Information about a playlist on BeatSaver.
 ///
