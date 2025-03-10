@@ -186,10 +186,12 @@ pub struct MapStats {
     pub plays: i32,
 
     /// Number of written reviews for the map.
+    #[serde(default)]
     pub reviews: i32,
 
     /// General user sentiment of the map.
-    pub sentiment: Option<UserSentiment>,
+    #[serde(default)]
+    pub sentiment: UserSentiment,
 }
 
 /// Information about a map on BeatSaver.

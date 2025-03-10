@@ -152,9 +152,10 @@ pub enum PatreonTier {
     SupporterPlus,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Default)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum UserSentiment {
+    #[default]
     Pending,
     VeryNegative,
     MostlyNegative,
