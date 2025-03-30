@@ -35,7 +35,7 @@ impl Debug for ClientError {
     }
 }
 
-type AnyResult<T> = Result<T, ClientError>;
+type BSClientResult<T> = Result<T, ClientError>;
 
 pub struct BeatSaverClient {
     client: Client,
@@ -54,7 +54,7 @@ impl BeatSaverClient {
         Self { client }
     }
 
-    pub async fn get_endpoint<T>(&self, endpoint: &str) -> AnyResult<T>
+    pub async fn get_endpoint<T>(&self, endpoint: &str) -> BSClientResult<T>
     where
         T: DeserializeOwned,
     {
@@ -75,33 +75,33 @@ impl BeatSaverClient {
     }
 
     /// Get map information given an ID.
-    pub async fn map(&self, id: &str) -> AnyResult<Map> {
+    pub async fn map(&self, id: &str) -> BSClientResult<Map> {
         self.get_endpoint(&format!("maps/id/{id}")).await
     }
 
     /// Get user information given an ID.
-    pub async fn user(&self, id: &str) -> AnyResult<User> {
+    pub async fn user(&self, id: &str) -> BSClientResult<User> {
         self.get_endpoint(&format!("users/id/{id}")).await
     }
 
     /// Get user information given a name.
-    pub async fn user_from_name(&self, name: &str) -> AnyResult<User> {
+    pub async fn user_from_name(&self, name: &str) -> BSClientResult<User> {
         self.get_endpoint(&format!("users/name/{name}")).await
     }
 
     /// Get playlist information given an ID.
-    pub async fn playlist_info(&self, id: &str) -> AnyResult<PlaylistPage> {
+    pub async fn playlist_info(&self, id: &str) -> BSClientResult<PlaylistPage> {
         self.get_endpoint(&format!("playlists/id/{id}/0")).await
     }
     /// Get a list of playlists matching search criteria.
-    pub async fn search_playlists(&self, query: &str) -> AnyResult<PlaylistSearchResponse> {
+    pub async fn search_playlists(&self, query: &str) -> BSClientResult<PlaylistSearchResponse> {
         self.get_endpoint(&format!("playlists/search/0?q={query}"))
             .await
     }
 
     /// Get a list of maps matching search criteria.
     /// TODO: add default parameters when i'm not sleepy
-    pub async fn search_maps(&self, query: &str) -> AnyResult<SearchResponse> {
+    pub async fn search_maps(&self, query: &str) -> BSClientResult<SearchResponse> {
         self.get_endpoint(&format!("search/text/0?pageSize=25&q={query}"))
             .await
     }
