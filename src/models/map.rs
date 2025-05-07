@@ -269,6 +269,7 @@ pub struct MapDetail {
     pub curated_at: Option<DateTime<Utc>>,
 
     /// Tags of a map.
+    #[serde(default)]
     pub tags: Vec<MapTag>,
 
     /// The date, in UTC, the map was last updated, if any.

@@ -93,6 +93,7 @@ impl BeatSaverClient {
     pub async fn playlist_info(&self, id: &str) -> BSClientResult<PlaylistPage> {
         self.get_endpoint(&format!("playlists/id/{id}/0")).await
     }
+
     /// Get a list of playlists matching search criteria.
     pub async fn search_playlists(&self, query: &str) -> BSClientResult<PlaylistSearchResponse> {
         self.get_endpoint(&format!("playlists/search/0?q={query}"))
