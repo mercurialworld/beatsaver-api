@@ -14,7 +14,6 @@ use crate::models::{
 
 const BASE_URL: &str = "https://api.beatsaver.com/";
 
-// TODO: switch to thiserror
 #[derive(Error)]
 pub enum ClientError {
     #[error("Reqwest error")]
