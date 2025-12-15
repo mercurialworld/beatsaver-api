@@ -61,14 +61,12 @@ impl BeatSaverClient {
             .map_err(ClientError::URLError)?
             .join(endpoint);
 
-        let res = self
-            .client
-            .get(url?.as_str())
-            .send()
-            .await
-            .map_err(ClientError::ReqwestError)?
-            .text()
-            .await?;
+        let response = self.client.get(url?.as_str()).send().await;
+
+        let res = match response.unwrap().error_for_status() {
+            Ok(r) => r.text().await?,
+            Err(e) => return Err(ClientError::ReqwestError(e)),
+        };
 
         serde_json::from_str::<T>(&res).map_err(ClientError::SerdeError)
     }
