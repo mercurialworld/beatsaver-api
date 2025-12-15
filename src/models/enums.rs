@@ -29,8 +29,9 @@ impl Characteristic {
     }
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Default)]
 pub enum BeatSaberEnvironment {
+    #[default]
     DefaultEnvironment,
     TriangleEnvironment,
     NiceEnvironment,
