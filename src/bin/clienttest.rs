@@ -1,7 +1,7 @@
 use beatsaver_api::{client::BeatSaverClient, models::map::Map};
 
-async fn reality_check(client: &BeatSaverClient) -> anyhow::Result<Map> {
-    let sans = client.map("25f").await;
+async fn get_map(client: &BeatSaverClient) -> anyhow::Result<Map> {
+    let sans = client.map("4494b").await;
     match sans {
         Ok(map) => Ok(map),
         Err(e) => Err(e.into()),
@@ -11,7 +11,7 @@ async fn reality_check(client: &BeatSaverClient) -> anyhow::Result<Map> {
 #[tokio::main]
 async fn main() {
     let client = BeatSaverClient::new();
-    match reality_check(&client).await {
+    match get_map(&client).await {
         Ok(map) => print!("{:?}", map),
         Err(err) => {
             eprintln!("ERROR: {}", err);
