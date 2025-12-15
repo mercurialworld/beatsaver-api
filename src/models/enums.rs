@@ -128,7 +128,7 @@ impl BeatSaberEnvironment {
     }
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub enum MapState {
     Uploaded,
     Testplay,
@@ -137,7 +137,7 @@ pub enum MapState {
     Scheduled,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 #[serde(rename_all = "UPPERCASE")]
 pub enum AccountType {
     Discord,
@@ -145,14 +145,14 @@ pub enum AccountType {
     Dual,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub enum PatreonTier {
     None,
     Supporter,
     SupporterPlus,
 }
 
-#[derive(Debug, Deserialize, Default)]
+#[derive(Debug, Deserialize, Default, PartialEq)]
 #[serde(rename_all = "SCREAMING_SNAKE_CASE")]
 pub enum UserSentiment {
     #[default]
@@ -164,7 +164,7 @@ pub enum UserSentiment {
     VeryPositive,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub enum AIDeclarationType {
     Admin,
     Uploader,
@@ -172,7 +172,7 @@ pub enum AIDeclarationType {
     None,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 #[serde(rename_all = "kebab-case")]
 pub enum MapTag {
     None,
@@ -239,7 +239,7 @@ pub enum MapTag {
     AI,
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, PartialEq)]
 pub enum PlaylistType {
     Private,
     Public,
