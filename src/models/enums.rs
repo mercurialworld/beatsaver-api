@@ -54,6 +54,7 @@ pub enum BeatSaberEnvironment {
     BillieEnvironment,
     HalloweenEnvironment,
     GagaEnvironment,
+    Halloween2Environment,
     GlassDesertEnvironment,
     MultiplayerEnvironment,
     WeaveEnvironment,
@@ -75,6 +76,7 @@ pub enum BeatSaberEnvironment {
     BritneyEnvironment,
     Monstercat2Environment,
     MetallicaEnvironment,
+    GridEnvironment,
 }
 
 impl BeatSaberEnvironment {
@@ -103,6 +105,7 @@ impl BeatSaberEnvironment {
             Self::BillieEnvironment => "Billie",
             Self::HalloweenEnvironment => "Halloween",
             Self::GagaEnvironment => "Gaga",
+            Self::Halloween2Environment => "Spoooky",
             Self::GlassDesertEnvironment => "Glass Desert",
             Self::MultiplayerEnvironment => "Multiplayer",
             Self::WeaveEnvironment => "Weave",
@@ -124,6 +127,7 @@ impl BeatSaberEnvironment {
             Self::BritneyEnvironment => "Britney",
             Self::Monstercat2Environment => "Monstercat 2",
             Self::MetallicaEnvironment => "Metallica",
+            Self::GridEnvironment => "Cube",
         }
     }
 }
