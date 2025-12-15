@@ -185,6 +185,7 @@ pub enum MapTag {
     Challenge,
     Accuracy,
     Fitness,
+    Poodle,
 
     // Song genres
     Swing,
@@ -234,6 +235,8 @@ pub enum MapTag {
     Rock,
     Pop,
     Electronic,
+    #[serde(rename = "ai")]
+    AI,
 }
 
 #[derive(Debug, Deserialize)]
