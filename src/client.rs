@@ -106,4 +106,8 @@ impl BeatSaverClient {
         self.get_endpoint(&format!("search/text/0?pageSize=25&q={query}"))
             .await
     }
+
+    pub async fn latest(&self, params: &str) -> BSClientResult<SearchResponse> {
+        self.get_endpoint(&format!("maps/latest?{params}")).await
+    }
 }
