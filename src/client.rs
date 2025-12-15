@@ -42,15 +42,18 @@ pub struct BeatSaverClient {
 
 impl Default for BeatSaverClient {
     fn default() -> Self {
-        Self::new()
+        let user_agent = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"),);
+
+        // [TODO] this is cursed, come back with a better method
+        Self::new(user_agent).expect("Unable to create BeatSaver client")
     }
 }
 
 impl BeatSaverClient {
-    pub fn new() -> Self {
-        let client = reqwest::Client::new();
+    pub fn new(user_agent: &str) -> BSClientResult<Self> {
+        let client = reqwest::Client::builder().user_agent(user_agent).build()?;
 
-        Self { client }
+        Ok(Self { client })
     }
 
     pub async fn get_endpoint<T>(&self, endpoint: &str) -> BSClientResult<T>

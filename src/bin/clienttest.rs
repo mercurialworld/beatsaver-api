@@ -10,7 +10,7 @@ async fn get_map(client: &BeatSaverClient) -> anyhow::Result<Map> {
 
 #[tokio::main]
 async fn main() {
-    let client = BeatSaverClient::new();
+    let client = BeatSaverClient::default();
     match get_map(&client).await {
         Ok(map) => print!("{:?}", map),
         Err(err) => {
