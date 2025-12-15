@@ -37,16 +37,16 @@ pub struct MapDetailMetadata {
     pub duration: i32,
 
     /// The song name.
-    pub song_name: String,
+    pub song_name: Option<String>,
 
     /// The song's sub name.
-    pub song_sub_name: String,
+    pub song_sub_name: Option<String>,
 
     /// The artist of the song.
-    pub song_author_name: String,
+    pub song_author_name: Option<String>,
 
     /// The creator of the map.
-    pub level_author_name: String,
+    pub level_author_name: Option<String>,
 }
 
 /// The mapset metadata.
