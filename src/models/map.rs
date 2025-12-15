@@ -219,7 +219,7 @@ pub struct MapDetail {
     pub deleted_at: Option<DateTime<Utc>>,
 
     /// The date, in UTC, the map was last published, if any.
-    pub last_published_at: DateTime<Utc>,
+    pub last_published_at: Option<DateTime<Utc>>,
 
     /// Whether the map is NSFW or not.
     #[serde(default)]
