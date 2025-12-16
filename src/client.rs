@@ -8,7 +8,7 @@ use url::Url;
 use crate::models::{
     map::Map,
     playlist::PlaylistPage,
-    search::{PlaylistSearchResponse, SearchResponse},
+    search::{LatestMapResponse, PlaylistSearchResponse, SearchResponse},
     user::User,
 };
 
@@ -107,7 +107,7 @@ impl BeatSaverClient {
             .await
     }
 
-    pub async fn latest(&self, params: &str) -> BSClientResult<SearchResponse> {
+    pub async fn latest(&self, params: &str) -> BSClientResult<LatestMapResponse> {
         self.get_endpoint(&format!("maps/latest?{params}")).await
     }
 }

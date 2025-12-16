@@ -58,3 +58,10 @@ pub struct PlaylistSearchResponse {
     /// Information about the search results.
     pub info: SearchInfo,
 }
+
+/// Result of getting the /latest endpoint.
+#[derive(Debug, Deserialize)]
+pub struct LatestMapResponse {
+    /// An array of maps relevant to the search criteria.
+    pub docs: Vec<MapDetail>,
+}
