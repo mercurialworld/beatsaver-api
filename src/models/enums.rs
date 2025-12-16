@@ -142,7 +142,7 @@ pub enum MapState {
     Scheduled,
 }
 
-#[derive(Debug, Deserialize, PartialEq)]
+#[derive(Debug, Deserialize, PartialEq, Clone)]
 #[serde(rename_all = "UPPERCASE")]
 pub enum AccountType {
     Discord,
@@ -150,7 +150,7 @@ pub enum AccountType {
     Dual,
 }
 
-#[derive(Debug, Deserialize, PartialEq)]
+#[derive(Debug, Deserialize, PartialEq, Clone)]
 pub enum PatreonTier {
     None,
     Supporter,

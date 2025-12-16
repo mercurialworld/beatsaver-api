@@ -10,7 +10,7 @@ use crate::models::enums::{AccountType, PatreonTier};
 pub type User = UserDetail;
 
 /// Information about a user on BeatSaver.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct UserDetail {
     /// The numeric ID of a user.
@@ -92,7 +92,7 @@ pub struct UserDetail {
 }
 
 /// Stats of the user's maps, aggregated by BeatSaver.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct UserStats {
     /// Average BPM of the songs a user maps.
@@ -127,7 +127,7 @@ pub struct UserStats {
 }
 
 /// Numbers of how many maps of each difficulty a user has made.
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct UserDiffStats {
     /// How many Easy maps the user has made.
