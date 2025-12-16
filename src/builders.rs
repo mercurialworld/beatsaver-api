@@ -54,11 +54,17 @@ impl BeatSaverMapSearchBuilder {
         let mut query_params = vec![];
 
         if let Some(before) = self.before {
-            query_params.push(format!("before={}", before.to_rfc3339()));
+            query_params.push(format!(
+                "before={}",
+                before.to_rfc3339_opts(chrono::SecondsFormat::Millis, true)
+            ));
         }
 
         if let Some(after) = self.after {
-            query_params.push(format!("after={}", after.to_rfc3339()));
+            query_params.push(format!(
+                "after={}",
+                after.to_rfc3339_opts(chrono::SecondsFormat::Millis, true)
+            ));
         }
 
         if let Some(automapper) = self.automapper {
