@@ -1,8 +1,8 @@
 use beatsaver_api::{client::BeatSaverClient, models::map::Map};
 
 async fn get_map(client: &BeatSaverClient) -> anyhow::Result<Map> {
-    let sans = client.map("4494b").await;
-    match sans {
+    let res = client.map("4bb13").await;
+    match res {
         Ok(map) => Ok(map),
         Err(e) => Err(e.into()),
     }
