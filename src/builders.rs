@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
@@ -9,6 +11,18 @@ pub enum BeatSaverMapSearchSort {
     LastPublished,
     Created,
     Curated,
+}
+
+impl Display for BeatSaverMapSearchSort {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            BeatSaverMapSearchSort::FirstPublished => write!(f, "FIRST_PUBLISHED"),
+            BeatSaverMapSearchSort::Updated => write!(f, "UPDATED"),
+            BeatSaverMapSearchSort::LastPublished => write!(f, "LAST_PUBLISHED"),
+            BeatSaverMapSearchSort::Created => write!(f, "CREATED"),
+            BeatSaverMapSearchSort::Curated => write!(f, "CURATED"),
+        }
+    }
 }
 
 #[derive(Default)]
@@ -76,14 +90,7 @@ impl BeatSaverMapSearchBuilder {
         }
 
         if let Some(sort) = self.sort {
-            let sort_str = match sort {
-                BeatSaverMapSearchSort::FirstPublished => "FIRST_PUBLISHED",
-                BeatSaverMapSearchSort::Updated => "UPDATED",
-                BeatSaverMapSearchSort::LastPublished => "LAST_PUBLISHED",
-                BeatSaverMapSearchSort::Created => "CREATED",
-                BeatSaverMapSearchSort::Curated => "CURATED",
-            };
-            query_params.push(format!("sort={}", sort_str));
+            query_params.push(format!("sort={}", sort));
         }
 
         query_params.join("&")

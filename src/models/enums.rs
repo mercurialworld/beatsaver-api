@@ -92,17 +92,17 @@ impl fmt::Display for BeatSaberEnvironment {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             // older
-            Self::DefaultEnvironment => write!(f, "Default"),
+            Self::DefaultEnvironment => write!(f, "The First"),
             Self::TriangleEnvironment => write!(f, "Triangle"),
             Self::NiceEnvironment => write!(f, "Nice"),
             Self::BigMirrorEnvironment => write!(f, "Big Mirror"),
-            Self::KDAEnvironment => write!(f, "KDA"),
+            Self::KDAEnvironment => write!(f, "K/DA"),
             Self::MonstercatEnvironment => write!(f, "Monstercat"),
             Self::CrabRaveEnvironment => write!(f, "Crab Rave"),
             Self::DragonsEnvironment => write!(f, "Dragons"),
             Self::OriginsEnvironment => write!(f, "Origins"),
             Self::PanicEnvironment => write!(f, "Panic"),
-            Self::RocketEnvironment => write!(f, "Rocket"),
+            Self::RocketEnvironment => write!(f, "Rocket League"),
             Self::GreenDayEnvironment => write!(f, "Green Day"),
             Self::GreenDayGrenadeEnvironment => write!(f, "Green Day Grenade"),
             Self::TimbalandEnvironment => write!(f, "Timbaland"),
@@ -123,7 +123,7 @@ impl fmt::Display for BeatSaberEnvironment {
 
             // GLS
             Self::WeaveEnvironment => write!(f, "Weave"),
-            Self::PyroEnvironment => write!(f, "Pyro"),
+            Self::PyroEnvironment => write!(f, "Fall Out Boy"),
             Self::EDMEnvironment => write!(f, "EDM"),
             Self::TheSecondEnvironment => write!(f, "The Second"),
             Self::LizzoEnvironment => write!(f, "Lizzo"),
