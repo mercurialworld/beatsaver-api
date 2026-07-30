@@ -36,11 +36,13 @@ impl Debug for ClientError {
 
 type BSClientResult<T> = Result<T, ClientError>;
 
+/// A BeatSaver API client.
 pub struct BeatSaverClient {
     client: Client,
 }
 
 impl Default for BeatSaverClient {
+    /// Creates a client and sets the user agent to be the package name and version.
     fn default() -> Self {
         let user_agent = concat!(env!("CARGO_PKG_NAME"), "/", env!("CARGO_PKG_VERSION"),);
 
@@ -50,12 +52,16 @@ impl Default for BeatSaverClient {
 }
 
 impl BeatSaverClient {
+    /// Creates a client and sets the user agent to be whatever you specify.
     pub fn new(user_agent: &str) -> BSClientResult<Self> {
         let client = reqwest::Client::builder().user_agent(user_agent).build()?;
 
         Ok(Self { client })
     }
 
+    /// The generic "get endpoint" function.
+    ///
+    /// All other functions are just this under the hood.
     pub async fn get_endpoint<T>(&self, endpoint: &str) -> BSClientResult<T>
     where
         T: DeserializeOwned,
