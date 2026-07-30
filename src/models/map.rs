@@ -239,7 +239,11 @@ pub struct MapDetail {
     /// The general metadata (BPM, length, map/song author, song name) of the map.
     pub metadata: MapDetailMetadata,
 
-    /// The date the map was first uploaded.
+    /// The date the map was first published.
+    ///
+    /// For some reason, despite a map being uploaded, this can apparently be empty.
+    /// This will throw an error if you're using this library model to intercept BeatSaver's websockets.
+    /// I will not change this.
     pub uploaded: DateTime<Utc>,
 
     /// Supposedly, an array containing all the revisions of a map.
