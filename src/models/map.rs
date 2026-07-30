@@ -204,7 +204,8 @@ pub struct MapDetail {
     /// Whether the map is qualified on BeatLeader or not.
     pub bl_qualified: bool,
 
-    pub bookmarked: bool,
+    /// I have no idea what this is.
+    pub bookmarked: Option<bool>,
 
     /// The date, in UTC, the map was uploaded.
     pub created_at: DateTime<Utc>,
