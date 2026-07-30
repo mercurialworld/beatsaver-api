@@ -86,6 +86,7 @@ pub enum BeatSaberEnvironment {
     MetallicaEnvironment,
     GridEnvironment,
     ColdplayEnvironment,
+    ProdigyEnvironment,
 }
 
 impl fmt::Display for BeatSaberEnvironment {
@@ -143,6 +144,7 @@ impl fmt::Display for BeatSaberEnvironment {
             Self::MetallicaEnvironment => write!(f, "Metallica"),
             Self::GridEnvironment => write!(f, "Cube"),
             Self::ColdplayEnvironment => write!(f, "Coldplay"),
+            Self::ProdigyEnvironment => write!(f, "Prodigy"),
         }
     }
 }
