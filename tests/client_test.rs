@@ -1,6 +1,9 @@
 use core::panic;
 
-use beatsaver_api::{client::BeatSaverClient, models::map::Map};
+use beatsaver_api::{
+    client::BeatSaverClient,
+    models::{enums::MapTag, map::Map},
+};
 
 use crate::common::setup;
 
@@ -34,4 +37,12 @@ async fn it_gets_focus_by_jonas() {
             panic!("{}", panic_message)
         }
     }
+}
+
+#[test]
+fn it_slug() {
+    let tags: Vec<MapTag> = vec![MapTag::DanceStyle, MapTag::KPop, MapTag::Tech];
+    let tags_slugs: Vec<String> = tags.iter().map(|tag| tag.slug().into()).collect();
+
+    assert_eq!(tags_slugs, vec!["dance-style", "k-pop", "tech"])
 }

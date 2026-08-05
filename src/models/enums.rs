@@ -1,6 +1,6 @@
 use std::fmt;
 
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Deserialize)]
 pub enum Characteristic {
@@ -193,7 +193,7 @@ pub enum AIDeclarationType {
     None,
 }
 
-#[derive(Debug, Deserialize, PartialEq)]
+#[derive(Debug, Deserialize, Serialize, PartialEq)]
 #[serde(rename_all = "kebab-case")]
 pub enum MapTag {
     None,
@@ -312,6 +312,64 @@ impl fmt::Display for MapTag {
             MapTag::Pop => write!(f, "Pop"),
             MapTag::Electronic => write!(f, "Electronic"),
             MapTag::AI => write!(f, "AI"),
+        }
+    }
+}
+
+impl MapTag {
+    pub fn slug(&self) -> &'static str {
+        match self {
+            // default
+            MapTag::None => "",
+
+            // map types
+            MapTag::Tech => "tech",
+            MapTag::DanceStyle => "dance-style",
+            MapTag::Speed => "speed",
+            MapTag::Balanced => "balanced",
+            MapTag::Challenge => "challenge",
+            MapTag::Accuracy => "accuracy",
+            MapTag::Fitness => "fitness",
+            MapTag::Poodle => "poodle",
+
+            // genres
+            MapTag::Swing => "swing",
+            MapTag::Nightcore => "nightcore",
+            MapTag::Folk => "folk-acoustic",
+            MapTag::Family => "kids-family",
+            MapTag::Ambient => "ambient",
+            MapTag::Funk => "funk-disco",
+            MapTag::Jazz => "jazz",
+            MapTag::Classical => "classical-orchestral",
+            MapTag::Soul => "soul",
+            MapTag::Speedcore => "speedcore",
+            MapTag::Punk => "punk",
+            MapTag::RB => "rb",
+            MapTag::Holiday => "holiday",
+            MapTag::Vocaloid => "vocaloid",
+            MapTag::JRock => "j-rock",
+            MapTag::Trance => "trance",
+            MapTag::DrumBass => "drum-and-bass",
+            MapTag::Comedy => "comedy-meme",
+            MapTag::Instrumental => "instrumental",
+            MapTag::Hardcore => "hardcore",
+            MapTag::KPop => "k-pop",
+            MapTag::Indie => "indie",
+            MapTag::Techno => "techno",
+            MapTag::House => "house",
+            MapTag::Game => "video-game-soundtrack",
+            MapTag::Film => "tv-movie-soundtrack",
+            MapTag::Alt => "alternative",
+            MapTag::Dubstep => "dubstep",
+            MapTag::Metal => "metal",
+            MapTag::Anime => "anime",
+            MapTag::HipHop => "hip-hop-rap",
+            MapTag::JPop => "j-pop",
+            MapTag::Dance => "dance",
+            MapTag::Rock => "rock",
+            MapTag::Pop => "pop",
+            MapTag::Electronic => "electronic",
+            MapTag::AI => "ai",
         }
     }
 }
